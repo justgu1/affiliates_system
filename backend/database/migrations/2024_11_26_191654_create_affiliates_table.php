@@ -14,7 +14,13 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('code')->nullable();
+            $table->timestamp('birthday');
+            $table->string('cpf')->unique();
+            $table->integer('phone');
+            $table->string('address');
+            $table->foreignId('city_id')->references('id')->on('cities');
+            $table->foreignId('state_id')->references('id')->on('states');
+            $table->string('code')->unique();
             $table->boolean('status')->default(true);
             $table->string('type')->default('affiliate');
             $table->timestamp('email_verified_at')->nullable();
