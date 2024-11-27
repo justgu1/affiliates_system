@@ -1,1 +1,43 @@
 @import './base.css';
+
+:root {
+    --featured_light: #01feae;
+    --featured_dark: #02be83;
+}
+
+.custom-select .vs__dropdown-toggle {
+    background-color: #fff;
+    border-radius: 0.375rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.custom-select .vs__search {
+    outline: none;
+    border: 1px solid #e5e7eb;
+    margin: 0 .5rem;
+    padding: 0 .5rem;
+}
+
+.custom-select .vs__dropdown-menu {
+    position: absolute !important;
+    z-index: 1000;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    min-width: 100%;
+}
+
+.custom-select .vs__dropdown-option {
+    padding: 0.75rem;
+    cursor: pointer;
+}
+
+.custom-select .vs__dropdown-option:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+}

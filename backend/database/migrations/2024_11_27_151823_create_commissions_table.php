@@ -10,8 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('isAdmin')->default(true);
+        Schema::create('commissions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('affiliate_id')->constrained('affiliates')->onDelete('cascade');
+            $table->string('description');
+            $table->decimal('amount', 10, 2);
+            $table->timestamps();
         });
     }
 
@@ -20,10 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            Schema::table('users', function (Blueprint $table) {
-                $table->dropColumn('isAdmin');
-            });
-        });
+        Schema::dropIfExists('commissions');
     }
 };

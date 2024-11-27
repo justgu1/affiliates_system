@@ -26,8 +26,12 @@ class Api {
       (error) => {
         if (error.response && error.response.status === 401) {
           localStorage.removeItem('user_token');
+          localStorage.removeItem('user_role');
+          localStorage.removeItem('user_name');
+          localStorage.removeItem('user_email');
+          localStorage.removeItem('user_isAdmin');
           delete this.api.defaults.headers.common['Authorization'];
-          window.location.href = '/login';
+          window.location.href = '/';
         }
         return Promise.reject(error);
       }

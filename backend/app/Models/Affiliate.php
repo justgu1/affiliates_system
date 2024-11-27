@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Comission;
 
 class Affiliate extends Authenticatable
 {
@@ -21,8 +22,16 @@ class Affiliate extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'birthday',
+        'cpf',
+        'phone',
+        'address',
+        'city',
+        'state',
+        'code',
         'status',
+        'type',
+        'password'
     ];
 
     /**
@@ -38,6 +47,11 @@ class Affiliate extends Authenticatable
     public function getStatus()
     {
         return $this->status;
+    }
+
+    public function commissions()
+    {
+        return $this->hasMany(Commission::class);
     }
 
     protected function casts(): array

@@ -1,7 +1,15 @@
 import { createApp } from 'vue';
-import '@styles/style.css';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCaretDown, } from '@fortawesome/free-solid-svg-icons';
+import './style.css';
+import '@vuepic/vue-datepicker/dist/main.css'
 
 import App from './App.vue';
 import router from './router.js';
 
-createApp(App).use(router).mount('#app');
+library.add(faCaretDown);
+
+const app = createApp(App);
+app.component('FontAwesomeIcon', FontAwesomeIcon);
+app.use(router).mount('#app');

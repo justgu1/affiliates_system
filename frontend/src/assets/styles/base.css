@@ -1,36 +1,62 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: lato;
 }
 
-html, body{
+html,
+body {
     background-color: #f3f3f3;
 }
 
-a{
+a {
     text-decoration: none;
     position: relative;
     padding: .25rem 0;
 }
-a:hover{
+
+a:hover, .featuredBtn:hover {
     opacity: .8;
 }
-a:before{
-    content:'';
+
+a:before {
+    content: '';
     width: 0%;
     bottom: 0;
     height: 2px;
-    background-color: rgba(147, 197, 253, .8);
+    background: linear-gradient(90deg, var(--featured_light), var(--featured_dark));
     position: absolute;
-    transition:.2s all linear;
+    transition: .2s all linear;
 }
 
-a.active::before, a.router-link-exact-active::before, a:hover::before{
-    width:100%;
+a.active::before,
+a.router-link-exact-active::before,
+a:hover::before {
+    width: 100%;
 }
 
-ul{
-    list-style: none;  
-  }
+ul {
+    list-style: none;
+}
+
+.topToBottom-enter-active,
+.topToBottom-leave-active {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.topToBottom-enter,
+.topToBottom-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.authHeaderSection a.btn-active svg{
+transform: rotate(180deg);
+}
+
+.featuredBtn{
+    background: linear-gradient(90deg, var(--featured_light), var(--featured_dark));
+}
